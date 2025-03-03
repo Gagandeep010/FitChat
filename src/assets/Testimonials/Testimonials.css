@@ -76,3 +76,19 @@
     width: 1.5rem;
     cursor: pointer;
 }
+
+.name-status {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.name {
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.status {
+    color: white;
+    font-weight: normal;
+}
