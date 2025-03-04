@@ -1,26 +1,32 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import './Join.css'
 import emailjs from '@emailjs/browser';
 
-const Join = () => {
-
+export default function Join() {
+  const [email, setEmail] = useState("")
     const form = useRef()
 
-    const sendEmail = (e) => {
+      const handleSubmit = (e) => {
         e.preventDefault();
+        const serviceId = "service_ibrm3xd";
+        const templateId = "template_d2xhllr";
+        const publicKey = "VA-q8hsi1J6pwZbvw";
+        const templateParams = {
+          user_email: email,
+        };
+        emailjs.send(serviceId, templateId, templateParams, publicKey).then(
+          (result) => {
+
+            setEmail("");
     
-        emailjs
-          .sendForm('service_ibrm3xd', 'template_nvl9wqh', form.current, 'jaERfVbUH58kIU7v5',
-          )
-          .then(
-            () => {
-              console.log('SUCCESS!');
-            },
-            (error) => {
-              console.log('FAILED...', error.text);
-            },
-          );
+            alert("Message Sent Successfully");
+          },
+          (error) => {
+            alert("Error Sending Message");
+          }
+        );
       };
+
 
   return (
     <div className="join" id="join-us">
@@ -36,13 +42,14 @@ const Join = () => {
             </div>
         </div>
         <div className="right-j">
-            <form ref={form} className="email-container" onSubmit={sendEmail}>
-                <input type="email" name="user_email" placeholder='Enter your Email Address here...' />
+            <form ref={form} className="email-container" onSubmit={handleSubmit}>
+                <input type="email" name="user_email" placeholder='Enter your Email Address here...' onChange={(e) => {
+                  setEmail(e.target.value);
+                  console.log(e.target.value);
+                }}/>
                 <button className='btn btn-j'>Join Now</button>
             </form>
         </div>
     </div>
   )
 }
-
-export default Join
