@@ -9,7 +9,7 @@ export default function Join() {
       const handleSubmit = (e) => {
         e.preventDefault();
         const serviceId = "service_ibrm3xd";
-        const templateId = "template_d2xhllr";
+        const templateId = "template_kjv6icd";
         const publicKey = "VA-q8hsi1J6pwZbvw";
         const templateParams = {
           user_email: email,

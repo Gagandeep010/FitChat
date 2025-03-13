@@ -4,7 +4,7 @@ import './Footer.css'
 import Github from '../../assets/github.png'
 import instagram from '../../assets/instagram.png'
 import linkedin from '../../assets/linkedin.png'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/hell.png'
 
 const Footer = () => {
   return (
